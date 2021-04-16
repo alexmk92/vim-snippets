@@ -1,6 +1,6 @@
 # Import
 snippet ir import React
-	import React from 'react';
+	import React, { FC } from 'react';
 
 snippet irc import React and Component
 	import React, { Component } from 'react';
@@ -90,31 +90,50 @@ snippet sst
 
 snippet tst 
 	this.state.${1};
+	
+# Styled
+snippet styl
+	import styled from 'styled-components'
+	
+	export const ${1:ComponentName}Wrapper = `
+	    ${2:style}
+	`
 
 # Component
-snippet rfc
-        type ${1:ComponentName}Props = {}
+snippet srfc
+	import React, {FC} from 'react'
+	import {${1:ComponentName}Wrapper} from './${1:ComponentName}.styles}'
 	
-	const ${1:ComponentName}: FC<${1:ComponentNameProps}> = ({${2:...delegated}}) => {
-		${3:state}
+	type ${1:ComponentName}Props = {
+		${2}
+	}
+	
+	const ${1:ComponentName}: FC<${1:ComponentNameProps}> = ({${3:...delegated}}) => {
+		${4:state}
 
 		return (
-			<{...delegated}>
-				${4}
-			</>
+			<${1:ComponentName}Wrapper {...delegated}>
+				${6}
+			</${1:ComponentName}Wrapper>
 		);
 	};
 	
-snippet erfc
-	type ${1:ComponentName}Props = {}
+	export default ${1:ComponentName}
+
+snippet rfc
+	import React, {FC} from 'react'
+
+	type ${1:ComponentName}Props = {
+		${2}
+	}
 	
-	const ${1:ComponentName}: FC<${1:ComponentNameProps}> = ({${2:...delegated}}) => {
-		${3:state}
+	const ${1:ComponentName}: FC<${1:ComponentNameProps}> = ({${3:...delegated}}) => {
+		${4:state}
 
 		return (
-			<{...delegated}>
-				${4}
-			</>
+			<${5:Tag} {...delegated}>
+				${6}
+			</${5:Tag}>
 		);
 	};
 	
