@@ -92,16 +92,29 @@ snippet tst
 	this.state.${1};
 
 # Component
-snippet raf
-	const ${1:ComponentName} = (${2:props}) => {
+snippet rfc
+	const ${1:ComponentName} = ({${2:...delegated}}) => {
 		${3:state}
 
 		return (
-			<>
+			<{...delegated}>
 				${4}
 			</>
 		);
 	};
+	
+snippet erfc
+	const ${1:ComponentName} = ({${2:...delegated}}) => {
+		${3:state}
+
+		return (
+			<{...delegated}>
+				${4}
+			</>
+		);
+	};
+	
+	export default ${1:ComponentName}
 
 snippet rcla
 	class ${1:ClassName} extends Component {
