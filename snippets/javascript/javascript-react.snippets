@@ -93,7 +93,9 @@ snippet tst
 
 # Component
 snippet rfc
-	const ${1:ComponentName} = ({${2:...delegated}}) => {
+        type ${1:ComponentName}Props = {}
+	
+	const ${1:ComponentName}: FC<${1:ComponentNameProps}> = ({${2:...delegated}}) => {
 		${3:state}
 
 		return (
@@ -104,7 +106,9 @@ snippet rfc
 	};
 	
 snippet erfc
-	const ${1:ComponentName} = ({${2:...delegated}}) => {
+	type ${1:ComponentName}Props = {}
+	
+	const ${1:ComponentName}: FC<${1:ComponentNameProps}> = ({${2:...delegated}}) => {
 		${3:state}
 
 		return (
